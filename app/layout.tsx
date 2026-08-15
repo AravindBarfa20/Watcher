@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "./prism.css";
+import "./redline-theme.css";
 
 export const metadata: Metadata = {
   title: "Redline — Production Agent Control Plane",
