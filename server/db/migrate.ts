@@ -2,7 +2,12 @@ import Database from "better-sqlite3";
 import { mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
-export const DATABASE_PATH = resolve(process.cwd(), "data/redline.db");
+// Vercel Functions expose only /tmp as writable storage. This keeps the
+// deterministic incident lab operational in a single function instance while
+// the production database adapter is migrated to managed storage.
+export const DATABASE_PATH = process.env.VERCEL
+  ? "/tmp/redline.db"
+  : resolve(process.cwd(), "data/redline.db");
 
 export function openDatabase() {
   mkdirSync(dirname(DATABASE_PATH), { recursive: true });
