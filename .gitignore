@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Next.js and build output
+.next/
+out/
+dist/
+dist-server/
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+
+# Local databases
+data/*.db
+data/*.db-*
+data/*.sqlite
+data/*.sqlite3
+
+# Vercel and tooling
+.vercel/
+coverage/
+*.log
+.DS_Store
+
