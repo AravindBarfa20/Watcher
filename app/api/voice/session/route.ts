@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import { NextResponse } from "next/server";
 import { apiError, requestId } from "../../../../lib/server/http";
 import { getIncidentService } from "../../../../lib/server/runtime";
+import { buildVoiceInstructions } from "../../../../lib/voice-instructions";
 import { DomainError } from "../../../../server/services/incident-service";
 
 export const runtime = "nodejs";
@@ -16,10 +17,13 @@ export async function POST(request: Request) {
 
     const evidenceSummary = snapshot.evidence.map(item => `${item.kind}: ${item.title}`).join("\n");
     const vocabulary=[snapshot.incident.service,snapshot.incident.deploymentVersion,...snapshot.evidence.map(item=>item.title)].join(", ");
-    const instructions = `You are Redline, a calm senior incident commander speaking with Nadia Okafor.
-The current incident is ${snapshot.incident.title}. Current impact: ${snapshot.incident.impact}.
-Known evidence:\n${evidenceSummary}
-Keep answers under 30 seconds unless asked for detail. Never invent facts. Use the read-only evidence tools before making a factual claim. Say when evidence is missing. You may explain and compare options, but you cannot authorize or execute a change. Ask Nadia to record the final decision in the Redline interface.`;
+    const instructions = buildVoiceInstructions({
+      title: snapshot.incident.title,
+      impact: snapshot.incident.impact,
+      service: snapshot.incident.service,
+      deploymentVersion: snapshot.incident.deploymentVersion,
+      evidenceSummary,
+    });
 
     const providerResponse = await fetch("https://api.openai.com/v1/realtime/client_secrets", {
       method: "POST",
