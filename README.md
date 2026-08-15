@@ -1,8 +1,8 @@
-# Redline
+# Watcher
 
 **A human control plane for autonomous production agents.**
 
-Redline detects operational incidents, assembles grounded evidence, explains the situation through a two-way voice supervisor, and requires accountable human authorization before any consequential production action is executed.
+watcher detects operational incidents, assembles grounded evidence, explains the situation through a two-way voice supervisor, and requires accountable human authorization before any consequential production action is executed.
 
 ```text
 monitor → detect → investigate → human review → authorize → execute → verify
