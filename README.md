@@ -2,7 +2,7 @@
 
 **A human control plane for autonomous production agents.**
 
-**Live demo:** [watcher-nhtnmdnpd-aravindt2425-5086s-projects.vercel.app](https://watcher-nhtnmdnpd-aravindt2425-5086s-projects.vercel.app)
+**Live demo:** [watcher-n4pwi2e7k-aravindt2425-5086s-projects.vercel.app](https://watcher-n4pwi2e7k-aravindt2425-5086s-projects.vercel.app)
 
 watcher detects operational incidents, assembles grounded evidence, explains the situation through a two-way voice supervisor, and requires accountable human authorization before any consequential production action is executed.
 
@@ -101,7 +101,7 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for system design and authority boundar
 
 ## Deployment
 
-Current hosted demo: [Open Watcher on Vercel](https://watcher-nhtnmdnpd-aravindt2425-5086s-projects.vercel.app)
+Current hosted demo: [Open Watcher on Vercel](https://watcher-n4pwi2e7k-aravindt2425-5086s-projects.vercel.app)
 
 The Next.js application is compatible with Vercel. The current SQLite repository is optimized for local development and must be migrated to managed storage before a reliable Vercel deployment because Vercel Functions do not provide persistent local storage.
 
